@@ -6,6 +6,11 @@
 * npm view react version
 * npm view react-script version
 * npm install -D eslint-plugin-react-hooks
+* npm install axios
+* npm install -D @types/axios
+* npm install react-router-dom
+* npm install -D @types/react-router-dom
 
 ## Links
 * https://github.com/facebook/create-react-app
+* https://reactrouter.com/
