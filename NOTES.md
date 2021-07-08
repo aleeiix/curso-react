@@ -10,6 +10,11 @@
 * npm install -D @types/axios
 * npm install react-router-dom
 * npm install -D @types/react-router-dom
+* npm install react-addons-css-transition-group 
+* npm install -D @types/react-addons-css-transition-group
+* npm install --save react-motion @types/react-motion
+* npm install styled-components
+* npm install -D @types/styled-components
 
 ## Links
 * https://github.com/facebook/create-react-app
