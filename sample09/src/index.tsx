@@ -14,6 +14,7 @@ const log = (store: any) => (next: any) => (action:any) => {
   next(action);
 }
 
+
 const store: Store<ItemState, ItemAction> & {dispatch: DispatchType} = createStore(reducer, applyMiddleware(thunk, log));
 
 render(
