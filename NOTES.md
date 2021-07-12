@@ -15,6 +15,10 @@
 * npm install --save react-motion @types/react-motion
 * npm install styled-components
 * npm install -D @types/styled-components
+* npm install redux
+* npm install -D @types/redux
+* npm install react-redux
+* npm install -D @types/react-redux
 
 ## Links
 * https://github.com/facebook/create-react-app
