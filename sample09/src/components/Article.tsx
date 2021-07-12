@@ -1,6 +1,4 @@
 import { FC, useCallback } from "react";
-import { Dispatch } from "redux";
-import { useDispatch } from "react-redux";
 
 interface Props {
   item: Item;
@@ -8,11 +6,10 @@ interface Props {
 };
 
 export const Article: FC<Props> = ({ item, removeItem }) => {
-  const dispatch: Dispatch<any> = useDispatch();
 
   const deleteItem = useCallback(
-    (item: Item) => dispatch(removeItem(item)),
-    [dispatch, removeItem]
+    (item: Item) => {removeItem(item)},
+    [removeItem]
   );
 
   return (
@@ -25,3 +22,5 @@ export const Article: FC<Props> = ({ item, removeItem }) => {
     </div>
   );
 };
+
+export default Article;

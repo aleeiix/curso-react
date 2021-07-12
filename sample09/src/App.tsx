@@ -1,24 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useCallback } from "react";
+import { Dispatch, FC } from "react";
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
 
-function App() {
+import AddItem from './components/AddItem'
+import Article from './components/Article'
+
+import {addItem, removeItem} from './store/actionsFactory'
+
+const App: FC = () => {
+
+  const dispatch: Dispatch<any> = useDispatch();
+
+  const items: readonly Item[] = useSelector(
+    (state: ItemState) => state.items,
+    shallowEqual
+  )
+
+  const saveItem = useCallback((item: Item) => {
+    dispatch(addItem(item))
+  }, [dispatch])
+
+  const deleteItem = useCallback((item: Item) => {
+    dispatch(removeItem(item))
+  }, [dispatch])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>My Items</h1>
+      <AddItem saveItem={saveItem} />
+      {items.map((item: Item) => (
+        <Article key={item.id} item={item} removeItem={deleteItem}/>
+      ))}
     </div>
   );
 }

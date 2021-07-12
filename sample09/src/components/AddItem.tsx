@@ -1,21 +1,16 @@
 import {ChangeEvent, FC, FormEvent, useState} from 'react';
-import {Dispatch} from 'redux';
-import {useDispatch} from 'react-redux';
-
 
 interface Props {
-    saveItem: (item: Partial<Item>) => void;
+    saveItem: (item: Item) => void;
 }
 
 export const AddItem: FC<Props> = ({saveItem}) => {
-    const dispatch: Dispatch = useDispatch<any>();
-
-    const [item, setItem] = useState<Partial<Item>>();
+    const [item, setItem] = useState<any>();
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
 
-        saveItem(item)
+        saveItem(item as Item)
     }
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -27,9 +22,11 @@ export const AddItem: FC<Props> = ({saveItem}) => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <input type="text" name="title" value={item.title} placeholder="Title" onChange={handleChange} />
-            <input type="text" name="body" value={item.body} placeholder="Body" onChange={handleChange} />
+            <input type="text" name="title" value={item?.title} placeholder="Title" onChange={handleChange} />
+            <input type="text" name="body" value={item?.body} placeholder="Body" onChange={handleChange} />
             <button disabled={!item}>Add Item</button>
         </form>
     )
 }
+
+export default AddItem;

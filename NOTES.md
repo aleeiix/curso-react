@@ -19,6 +19,8 @@
 * npm install -D @types/redux
 * npm install react-redux
 * npm install -D @types/react-redux
+* npm install redux-thunk
+* npm install -D @types/redux-thunk
 
 ## Links
 * https://github.com/facebook/create-react-app
