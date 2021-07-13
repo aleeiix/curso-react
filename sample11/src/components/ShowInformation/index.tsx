@@ -51,7 +51,7 @@ const ShowInformation = () => {
                     <strong>Age: </strong>
                 </p>
                 <p>
-                    <input type="text" name="age" value={state.age} onChange={handleChange} />
+                    <input type="number" name="age" value={state.age} onChange={handleChange} />
                 </p>
                 <button onClick={handleClick}>Show Information</button>
             </div>

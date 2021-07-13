@@ -1,4 +1,4 @@
-import { render, screen, fireEvent, RenderResult } from "@testing-library/react";
+import { render, screen, fireEvent, RenderResult, cleanup } from "@testing-library/react";
 
 import ShowInformation from "./index";
 
@@ -10,15 +10,32 @@ describe('ShowInformation Component', () => {
         wrapper = render(<ShowInformation />);
     })
 
-    // it('Render with expected values', () => {
+    it('should modify the name and age', () => {
 
-    //     expect(screen.getByRole('cell', {name: /john smith/i})).toBeInTheDocument();
-    //     expect(screen.getByRole('cell', {name: /designer/i})).toBeInTheDocument();
-    // })
+        const nameInput = wrapper.container.querySelector("input[name='name']") as HTMLInputElement;
+        const ageInput = wrapper.container.querySelector("input[name='age']") as HTMLInputElement;
 
-    // it('Render with correct class', () => {
-    //     render(<Table employees={fakeEmployees} />)
+        fireEvent.change(nameInput, {target: {value: 'Aleix'}});
+        fireEvent.change(ageInput, {target: {value: 25}});
 
-    //     expect(screen.getByRole('table')).toHaveAttribute('class', 'table')
-    // })
+        expect(nameInput.value).toBe('Aleix');
+        expect(ageInput.value).toBe('25');
+    })
+    
+    it('should show the personal information when user click on the button', () => {
+
+        const nameInput = wrapper.container.querySelector("input[name='name']") as HTMLInputElement;
+        const ageInput = wrapper.container.querySelector("input[name='age']") as HTMLInputElement;
+        const button = wrapper.container.querySelector("button") as HTMLButtonElement;
+
+        fireEvent.change(nameInput, {target: {value: 'Aleix'}});
+        fireEvent.change(ageInput, {target: {value: 25}});
+        fireEvent.click(button)
+
+        const showInformation = wrapper.container.querySelector(".ShowInformation")
+
+        expect(showInformation).toBeInTheDocument();
+    })
+
+    afterAll(cleanup);
 })
