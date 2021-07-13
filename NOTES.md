@@ -25,3 +25,20 @@
 ## Links
 * https://github.com/facebook/create-react-app
 * https://reactrouter.com/
+
+## Testing
+Scripts:
+```
+"test": "react-scripts test",
+"coverage": "react-scripts test --coverage --watchAll",
+```
+
+Metodos:
+```
+describe, it, test, expect
+```
+
+import {render, screen} from '@testing-library/react';
+
+const header = screen.getByRole('heading', {name: /travel anywhere/i});
+screen.debug(header);

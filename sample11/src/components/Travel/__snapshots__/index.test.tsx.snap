@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Travel Component Display text component as snapshot 1`] = `
+<div>
+  <div
+    class="card text-center"
+    style="width: 20rem;"
+  >
+    <i
+      class="material-icons"
+      style="font-size: 5rem;"
+    >
+      Airplane Mode Active
+    </i>
+    <h4>
+      Travel Anywhere
+    </h4>
+  </div>
+</div>
+`;
