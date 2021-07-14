@@ -39,7 +39,6 @@ Metodos:
 describe, it, test, expect
 ```
 
-import {render, screen} from '@testing-library/react';
-
-const header = screen.getByRole('heading', {name: /travel anywhere/i});
-screen.debug(header);
+## Plantillas
+cra-template // JS
+cra-template-typescript // TSX
